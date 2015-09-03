@@ -1,0 +1,22 @@
+extend layout
+block content
+	div.ui.container.my-container
+		table.ui.celled.center.aligned.table
+			thead
+				tr
+					th Account
+					th Description
+					th Currency
+					th Amount
+					th
+			tbody
+			- each transaction in transactions
+				tr
+					td= transaction.account
+					td= transaction.description
+					td= transaction.currency_code
+					td= transaction.amount
+					td
+						form(method="post" action="removeTransaction")
+							input(type="hidden" name="id" value=transaction.id)
+							button.ui.inverted.red.button Remove

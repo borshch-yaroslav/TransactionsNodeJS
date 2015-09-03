@@ -1,0 +1,25 @@
+doctype
+html
+	head
+		title #{title} - Transaction processor
+		script(src='/js/jquery-2.1.4.js')
+		script(src='/js/init.js')
+		script(src='/semantic/dist/semantic.js')
+		link(rel='stylesheet', href='/semantic/dist/semantic.css')
+		link(rel='stylesheet', href='/stylesheets/my1.css')
+	body
+		div.my-main
+			div#my-header
+				div.ui.menu
+					a.item(href='/')
+						div.my-logo
+							h2.ui.header
+								img.ui.circular.image(src="/images/logo.jpg")
+					a.item(href='/') Main
+					a.item(href='transactions') Transactions
+					a.item(href='upload') Upload
+			block content
+		footer.page-footer
+			div.footer-copyright
+				div.ui.container.center.aligned
+					p 2015 Copyright by Slavko

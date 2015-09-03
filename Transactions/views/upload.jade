@@ -1,0 +1,31 @@
+extend layout
+block content
+	div.ui.container.center.aligned.my-container
+		h2.ui.header(style="padding-top:2em") Choose file with transaction data:
+		form#upload-form(method="post" action="processFile" enctype="multipart/form-data" style="margin:3em auto")
+			label
+				div.ui.red.inverted.button Choose file
+				div(style="display: inline-block; width:15em")
+					h5.ui.header .xlsx or .csv allowed		
+				input#up-input(style="display:none;" type="file" name="transactionsFile" accept=".xlsx, .csv")
+			button.ui.red.inverted.button.disabled#up-btn Upload
+		div#upload-result(style="display:none")
+			h3.ui.header Data upload finished
+			div#message(style="white-space: pre-line")
+				h4.ui.header#gen(style="color:blue")= succesfulNumber
+				h5.ui.header#gen(style="color:red")= generalResult
+			div.ui.styled.accordion(style="margin: 2em auto")
+				div.title
+					i.dropdown.icon
+					p(style="display:inline") Ignore info
+				div.content#output
+					table.ui.celled.center.aligned.table.transition.hidden
+						thead
+							tr
+								th Row
+								th Detailed ignore info
+						tbody
+						- each row in result
+							tr
+								td= row.rowNumber
+								td= row.rowError
